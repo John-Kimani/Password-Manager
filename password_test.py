@@ -32,6 +32,12 @@ class TestCredential(unittest.TestCase):
         self.new_account.save_account()
         self.assertEqual(len(Credential.credentials_list),1)
 
+    def tearDown(self):
+        '''
+        cleans up each credential list after instance
+        '''
+        Credential.credentials_list = []
+        
     def test_save_multiple_contact(self):
         '''
         Test case to check if users can save multiple accounts
