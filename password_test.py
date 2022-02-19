@@ -56,6 +56,18 @@ class TestCredential(unittest.TestCase):
 
         self.new_account.delete_account() #deletes account object
         self.assertEqual(len(Credential.credentials_list),1)
+
+    def test_account_exist(self):
+        '''
+        Test case to check if a user account already exist returns a boolean
+        '''
+        self.new_account.save_account()
+        test_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98')
+        test_account.save_account()
+
+        account_exists = Credential.account_exist('0705651500')
+        self.assertTrue(account_exists)
+
 #class condition
 if __name__ == '__main__':
     unittest.main()
