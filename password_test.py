@@ -76,7 +76,7 @@ class TestCredential(unittest.TestCase):
         test_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98')
         test_account.save_account()
 
-        account_exists = Credential.account_exist('0705651500')
+        account_exists = Credential.account_exist('kimperria')
         self.assertTrue(account_exists)
 
 #class condition
