@@ -10,19 +10,27 @@ class TestCredential(unittest.TestCase):
     '''
 
     #test to check if credential object is instantiated properly
-    def setup(self):
+    def setUp(self):
         '''
         Set up method to run before each test case.
         '''
         self.new_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98') #sample login details for a new pintrest account 
-    
-    def test__init__(self):
+
+    def test__init(self):
         '''
         Test case to test if credential object is instantiated correctly
         '''
         self.assertEqual(self.new_account.accountName, 'Pintrest')
         self.assertEqual(self.new_account.accountUsername,'kimperria')
         self.assertEqual(self.new_account.accountPassword,'Aura-Dev98')
+
+
+    def test_save_account(self):
+        '''
+        Test case to check account object is saved into the contact list
+        '''
+        self.new_account.save_account()
+        self.assertEqual(len(Credential.credentials_list),1)
 
 
 #class condition
