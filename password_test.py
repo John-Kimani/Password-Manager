@@ -32,6 +32,14 @@ class TestCredential(unittest.TestCase):
         self.new_account.save_account()
         self.assertEqual(len(Credential.credentials_list),1)
 
+    def test_save_multiple_contact(self):
+        '''
+        Test case to check if users can save multiple accounts
+        '''
+        self.new_account.save_account()
+        test_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98')
+        test_account.save_account()
+        self.assertEqual(len(Credential.credentials_list),2)
 
 #class condition
 if __name__ == '__main__':
