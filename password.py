@@ -26,8 +26,16 @@ class Credential:
         self.accountUsername = accountUsername
         self.accountPassword = accountPassword
 
+    # save account function
     def save_account(self):
         '''
-        save_account method saves account log in credentials object into credential object
+        save_account method saves account log in credentials object into credential_list
         '''
         Credential.credentials_list.append(self)
+
+    #delete account function
+    def delete_account(self):
+        '''
+        delete_account method deletes a saved account from credential_list
+        '''
+        Credential.credentials_list.remove(self)
