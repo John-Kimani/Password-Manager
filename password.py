@@ -39,3 +39,17 @@ class Credential:
         delete_account method deletes a saved account from credential_list
         '''
         Credential.credentials_list.remove(self)
+
+    @classmethod
+    def find_by_accountUsername(cls, accountUsername):
+        '''
+        Method that takes in accountUsername and returns an account that matches that accountUsername
+        Args:
+            accountUsername: User username to search for
+        Returns:
+            account of person that matches accountUsername
+        '''
+        for account in cls.credentials_list:
+            if account.accountUsername == accountUsername:
+                return account
+
