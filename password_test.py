@@ -79,6 +79,14 @@ class TestCredential(unittest.TestCase):
         account_exists = Credential.account_exist('kimperria')
         self.assertTrue(account_exists)
 
+    def test_display_all_accounts(self):
+        '''
+        Method that returns a list of all saved accounts
+        '''
+        
+        self.assertEqual(Credential.display_accounts(),Credential.credentials_list)
+
+
 #class condition
 if __name__ == '__main__':
     unittest.main()
