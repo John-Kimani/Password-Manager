@@ -37,7 +37,7 @@ class TestCredential(unittest.TestCase):
         cleans up each credential list after instance
         '''
         Credential.credentials_list = []
-        
+
     def test_save_multiple_contact(self):
         '''
         Test case to check if users can save multiple accounts
@@ -46,7 +46,16 @@ class TestCredential(unittest.TestCase):
         test_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98')
         test_account.save_account()
         self.assertEqual(len(Credential.credentials_list),2)
+    def test_delete_account(self):
+        '''
+        Test case to check if user can delete an account
+        '''
+        self.new_account.save_account()
+        test_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98')
+        test_account.save_account()
 
+        self.new_account.delete_account() #deletes account object
+        self.assertEqual(len(Credential.credentials_list),1)
 #class condition
 if __name__ == '__main__':
     unittest.main()
