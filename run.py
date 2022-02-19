@@ -32,3 +32,13 @@ def display_accounts():
     Function that returns all saved accounts
     '''
     return Credential.display_accounts()
+
+def main():
+    print("Hello, Welcome to Password-Manager. We are your onestop online password wallet.")
+
+    print(f'Hello {{username}}. What would you like to do?')
+    print('\n')
+
+    while True:
+        print("Use these short codes: cc - create a new account, da - display your saved accounts, fa - find an account, ex - exit the account log in credentials list")
+        short_code == input().lower()
