@@ -19,8 +19,10 @@ Password-Manager is a web application that allows users to create a password man
 ```
 ## Features and BDD
 
-- This application previews my github account profile.
-- Users can search and find other github profiles.
+- Users can create new login credential accounts for their new or existinf online accounts.
+- Store already new and or existing account credentials in the application.
+- Users can view various account credentials and their passwords in the application.
+- Users can search and find,update and or delete saved online account details.
 
 ## Technology Used
 ### Developed with
