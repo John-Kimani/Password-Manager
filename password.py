@@ -13,7 +13,11 @@ class User:
         self.userName = userName
         self.password = password
 
-
+    def save_profile(self):
+        '''
+        Test to save a new profile
+        '''
+        User.profile_list.append(self)
 
 # end of users instance
 #starts of accounts credentials
