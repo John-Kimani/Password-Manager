@@ -34,6 +34,12 @@ def display_accounts():
     '''
     return Credential.display_accounts()
 
+def delete_account(accountName):
+    '''
+    Function that deletes an account
+    '''
+    return Credential.delete_account(accountName)
+
 def main():
     print("Hello, Welcome to Password-Manager. We are your onestop online password wallet.")
 
@@ -41,7 +47,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes: ca - create a new account, da - display your saved accounts, fa - find an account, ex - exit the account log in account credential list")
+        print("Use these short codes: ca - create a new account, da - display your saved accounts, fa - find an account, dlt - delete a credential account ex - exit the account log in account credential list")
         
         short_code = input().lower() #sets a variable to store short codes navigating this app
 
@@ -56,7 +62,7 @@ def main():
             print('Your account username ...')
             accountUsername = input()
 
-            print('Keyin Password ...')
+            print('Key in Password ...')
             accountPassword = input()
 
             save_account(create_account(accountName, accountUsername, accountPassword))# creates and save new account
@@ -92,7 +98,19 @@ def main():
                 print(f"Account username: {search_account.accountUsername}")
             else:
                 print("That account does not exist")
-    #exit app
+
+            # delete account
+        elif short_code == 'dlt':
+            print('Enter the account username you want to delete')
+            delete_saved_account = input()
+            if delete_account(delete_saved_account):
+                account_to_be_deleted = delete_account(delete_saved_account)
+                print(f"Account Name: {account_to_be_deleted.accountName}")
+                print('Account has been succesfully deleted')
+            else:
+                print('The account does not exist')
+
+        #exit app
         elif short_code == 'ex':
             print('Thank you for considering our service. Goodbye for now see you later!')
             break

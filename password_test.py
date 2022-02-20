@@ -48,7 +48,7 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(self.new_account.accountUsername,'kimperria')
         self.assertEqual(self.new_account.accountPassword,'Aura-Dev98')
 
-
+    # save account
     def test_save_account(self):
         '''
         Test case to check account object is saved into the contact list
@@ -61,8 +61,8 @@ class TestCredential(unittest.TestCase):
         cleans up each credential list after instance
         '''
         Credential.credentials_list = []
-
-    def test_save_multiple_contact(self):
+        # save multiple accounts
+    def test_save_multiple_accounts(self):
         '''
         Test case to check if users can save multiple accounts
         '''
@@ -70,6 +70,8 @@ class TestCredential(unittest.TestCase):
         test_account = Credential('Pintrest', 'kimperria', 'Aura-Dev98')
         test_account.save_account()
         self.assertEqual(len(Credential.credentials_list),2)
+
+        #delete account
     def test_delete_account(self):
         '''
         Test case to check if user can delete an account
@@ -81,6 +83,7 @@ class TestCredential(unittest.TestCase):
         self.new_account.delete_account() #deletes account object
         self.assertEqual(len(Credential.credentials_list),1)
 
+        # search account by username
     def test_find_account_by_username(self):
         '''
         Test case to check if we can find an account by username and display information
@@ -91,7 +94,7 @@ class TestCredential(unittest.TestCase):
 
         found_account = Credential.find_by_accountUsername('kimperria')
         self.assertEqual(found_account.accountUsername,test_account.accountUsername)
-
+        # check if account exist
     def test_account_exist(self):
         '''
         Test case to check if a user account already exist returns a boolean
@@ -102,7 +105,7 @@ class TestCredential(unittest.TestCase):
 
         account_exists = Credential.account_exist('kimperria')
         self.assertTrue(account_exists)
-
+        # display available accounts
     def test_display_all_accounts(self):
         '''
         Method that returns a list of all saved accounts
