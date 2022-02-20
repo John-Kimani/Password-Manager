@@ -1,12 +1,36 @@
 import unittest #unitest module
 from password import Credential #imports Credential class for testing
+from password import User #imports User class for testing
 
+class TestUser(unittest.TestCase):
+    '''
+    Test class that helps define test cases for the credentials class behaviours
+    Args:
+        Testcase class taht helps create test cases for User
+    '''
+    # test to check if user object is instatiated properly
+    def setUp(self):
+        '''
+        Set up method to run before each test case.
+        '''
+        self.new_profile = User('Vernice','Hakuna Mipaka')
+    
+    def test__init(self):
+        '''
+        Test case to test if User object is instantiated correctly
+        '''
+        self.assertEqual(self.new_profile.userName, 'Vernice')
+        self.assertEqual(self.new_profile.password, 'Hakuna Mipaka')
+
+
+#end of class user test
+#start of class credential test
 class TestCredential(unittest.TestCase):
     '''
     Test class that helps define test cases for the credentials class behaviours
     
     Args:
-        Testcase class that helps create test cases
+        Testcase class that helps create test cases for Credential
     '''
 
     #test to check if credential object is instantiated properly
@@ -83,7 +107,7 @@ class TestCredential(unittest.TestCase):
         '''
         Method that returns a list of all saved accounts
         '''
-        
+
         self.assertEqual(Credential.display_accounts(),Credential.credentials_list)
 
 
