@@ -1,8 +1,23 @@
 #!/usr/bin/env python3.6
-
-from dis import show_code
 from password import Credential
+from password import User
 
+def create_profile(username, password):
+    '''
+    Function to create a new user profile
+    '''
+    new_profile = User(username, password)
+    return new_profile
+
+def save_profile(profile):
+    '''
+    Function to save user profile
+    '''
+    profile.save_profile()
+
+
+## user class code above
+## credential class code below
 def create_account(accountName, accountUsername, accountPassword):
     '''
     Function to creates a new account
@@ -24,7 +39,7 @@ def find_account(accountUsername):
 
 def check_existing_account(accountUsername):
     '''
-    Function that retur all the saved account
+    Function that return all the saved account
     '''
     return Credential.account_exist(accountUsername)
 
@@ -43,10 +58,34 @@ def delete_account(accountName):
 def main():
     print("Hello, Welcome to Password-Manager. We are your onestop online password wallet.")
 
-    print(f'Hello {{username}}. What would you like to do?')
     print('\n')
 
     while True:
+        print('sign up or log in')
+        print('Use this short codes: su - create new profile, li - log in')
+        start = input()
+        if start == 'su':
+            print('Please enter your first name')
+            first_name = input()
+            print('Please enter your last name')
+            last_name = input()
+            print('Please enter your preferred username')
+            username = input()
+            print('Enter password')
+            password = input()
+            print('Please confirm password')
+            password = input()
+            print('Profile created succesfully')
+        elif start == 'li':
+            print('Please enter your profile username')
+            username = input()
+            print('Enter Password')
+            password = input()
+            print('You are now logged in')
+        else:
+            print('Kindly use the codes mentioned above')
+
+        print(f'Hello {{username}}. What would you like to do?')
         print("Use these short codes: ca - create a new account, da - display your saved accounts, fa - find an account, dlt - delete a credential account ex - exit the account log in account credential list")
         
         short_code = input().lower() #sets a variable to store short codes navigating this app
