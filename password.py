@@ -19,6 +19,12 @@ class User:
         '''
         User.profile_list.append(self)
 
+    def delete_profile(self):
+        '''
+        Test to delete user's profile
+        '''
+        User.profile_list.remove(self)
+
 # end of users instance
 #starts of accounts credentials
 ## generate credentials instances
