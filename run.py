@@ -141,11 +141,10 @@ def main():
             # delete account
         elif short_code == 'dlt':
             print('Enter the account username you want to delete')
-            delete_saved_account = input()
-            if delete_account(delete_saved_account):
-                account_to_be_deleted = delete_account(delete_saved_account)
-                print(f"Account Name: {account_to_be_deleted.accountName}")
-                print('Account has been succesfully deleted')
+            accountUsername = input()
+            if find_account(accountUsername):
+                delete_account(find_account(accountUsername))
+                print(f'{accountUsername} has been deleted')
             else:
                 print('The account does not exist')
 
